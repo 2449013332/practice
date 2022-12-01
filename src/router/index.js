@@ -18,6 +18,18 @@ export const routes = [
     path: "/count",
     component: (resolve) => require(["../views/count.vue"], resolve),
   },
+  {
+    path: "/score",
+    component: (resolve) => require(["../views/score.vue"], resolve),
+  },
+  {
+    path: "/lifeCycle",
+    component: (resolve) => require(["../views/lifeCycle.vue"], resolve),
+  },
+  {
+    path: "/father",
+    component: (resolve) => require(["../views/communication/father.vue"], resolve),
+  },
 ];
 
 export default new Router({

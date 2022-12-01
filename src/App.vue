@@ -1,12 +1,11 @@
 <template>
   <div id="app">
-    <a href="#/home">home</a>
-    <div class="box">box</div>
-    <br />
-
     <router-link to="watch">watch</router-link>
     <router-link to="home">home</router-link>
     <router-link to="count">count</router-link>
+    <router-link to="score">score</router-link>
+    <router-link to="lifeCycle">lifeCycle</router-link>
+    <router-link to="father">father</router-link>
     <router-view></router-view>
   </div>
 </template>
@@ -24,13 +23,9 @@ export default {
 <style>
 a {
   color: pink;
-  margin-right: 10px;
+  margin-right: 20px;
+  font-size: 20px;
   text-decoration: none;
 }
-.box {
-  width: 100px;
-  height: 100px;
-  border-radius: 8px;
-  background: pink;
-}
+
 </style>
