@@ -1,11 +1,14 @@
 <template>
   <div id="app">
-    <router-link to="watch">watch</router-link>
-    <router-link to="home">home</router-link>
-    <router-link to="count">count</router-link>
-    <router-link to="score">score</router-link>
-    <router-link to="lifeCycle">lifeCycle</router-link>
-    <router-link to="father">father</router-link>
+    <div>
+      <router-link to="watch">watch</router-link>
+      <router-link to="home">home</router-link>
+      <router-link to="count">count</router-link>
+      <router-link to="score">score</router-link>
+      <router-link to="lifeCycle">lifeCycle</router-link>
+      <router-link to="father">father</router-link>
+      <router-link to="change">change</router-link>
+    </div>
     <router-view></router-view>
   </div>
 </template>
@@ -21,11 +24,14 @@ export default {
 </script>
 
 <style>
-a {
-  color: pink;
-  margin-right: 20px;
-  font-size: 20px;
-  text-decoration: none;
+#app {
+  display: flex;
 }
-
+a {
+  color: orange;
+  padding: 20px;
+  font-size: 30px;
+  text-decoration: none;
+  display: block;
+}
 </style>

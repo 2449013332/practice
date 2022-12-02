@@ -30,6 +30,10 @@ export const routes = [
     path: "/father",
     component: (resolve) => require(["../views/communication/father.vue"], resolve),
   },
+  {
+    path: "/change",
+    component: (resolve) => require(["../views/change.vue"], resolve),
+  },
 ];
 
 export default new Router({
