@@ -9,7 +9,7 @@
       <router-link to="father">father</router-link>
       <router-link to="change">change</router-link>
     </div>
-    <router-view></router-view>
+    <router-view class="right_content"></router-view>
   </div>
 </template>
 
@@ -33,5 +33,12 @@ a {
   font-size: 30px;
   text-decoration: none;
   display: block;
+}
+a:focus{
+  color:green;
+}
+.right_content{
+  margin-top: 40px;
+  margin-left: 20px;
 }
 </style>
