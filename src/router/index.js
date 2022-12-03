@@ -34,6 +34,15 @@ export const routes = [
     path: "/change",
     component: (resolve) => require(["../views/change.vue"], resolve),
   },
+  {
+    path: "/arry",
+    component: (resolve) => require(["../views/arry.vue"], resolve),
+  },
+  {
+    path: "/arryDedup",
+    component: (resolve) => require(["../views/arryDedup.vue"], resolve),
+  },
+
 ];
 
 export default new Router({

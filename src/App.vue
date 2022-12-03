@@ -8,6 +8,8 @@
       <router-link to="lifeCycle">lifeCycle</router-link>
       <router-link to="father">father</router-link>
       <router-link to="change">change</router-link>
+      <router-link to="arry">arry</router-link>
+      <router-link to="arryDedup">arryDedup</router-link>
     </div>
     <router-view class="right_content"></router-view>
   </div>

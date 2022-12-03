@@ -4,7 +4,7 @@
       v-for="(item, index) in num"
       :key="index"
       class="box"
-      :class="{'pink':isActive==index}"
+      :class="{ pink: isActive == index }"
       @click="change(index)"
     >
       {{ item }}
@@ -17,14 +17,18 @@ export default {
   data() {
     return {
       num: [1, 2, 3, 4, 5, 6],
-      isActive: '',
-      currentIdx:0
+      isActive: 0,
     };
   },
   methods: {
     change(index) {
-       this.isActive=index
+      if (this.isActive == index) {
+        this.isActive = null;
+      } else {
+        this.isActive = index;
+      }
     },
+    
   },
 };
 </script>
@@ -43,7 +47,7 @@ export default {
   margin-top: 20px;
   border: 1px solid pink;
 }
-.pink{
-    background: pink;
+.pink {
+  background: pink;
 }
 </style>
