@@ -10,6 +10,8 @@
       <router-link to="change">change</router-link>
       <router-link to="arry">arry</router-link>
       <router-link to="arryDedup">arryDedup</router-link>
+      <router-link to="randomColor">randomColor</router-link>
+      
     </div>
     <router-view class="right_content"></router-view>
   </div>
