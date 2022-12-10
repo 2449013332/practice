@@ -1,12 +1,16 @@
 <template>
   <div>
+    {{ randomColor() }}
     <div class="color_box" :style="{ background: randomColor() }"></div>
+
+    <div>num:{{ num }}</div>
+    <el-button @click="add">add</el-button>
 
     <div>数组：{{ arr }}</div>
     <el-button @click="delet">删除大于30的数据</el-button
     ><span>删除后的数组：{{ newArr }}</span>
     <div>
-      <el-button>点我返回柯里化求和</el-button><span>{{all}}</span>
+      <el-button>点我返回柯里化求和</el-button><span>{{ all }}</span>
     </div>
   </div>
 </template>
@@ -17,10 +21,14 @@ export default {
     return {
       arr: [23, 41, 22, 55, 12, 33],
       newArr: [],
-      all:0
+      all: 0,
+      num: 0,
     };
   },
   methods: {
+    add() {
+      this.num++;
+    },
     randomColor() {
       var r = Math.floor(Math.random() * 256);
       var g = Math.floor(Math.random() * 256);
@@ -29,21 +37,18 @@ export default {
       return color;
     },
     delet() {
-      this.newArr = this.arr.map((item) => {
-        if (item <= 30) {
-          this.newArr.push(item);
-        }
-        return this.newArr;
-      });
+      this.newArr = this.arr.filter((item) => item > 30);
     },
 
     //写一个函数柯里化，调用函数时，返回函数的第一个括号和第二个括号相加的值
-    sum(){
-      function add(x, y) {
-      return x + y;
-     }
-     return this.all=add(1)(2)
-    }
+    sum() {
+      function add(x) {
+        return function fn(y){
+          return x+y
+        };
+      }
+      return this.all = add(1)(2);
+    },
   },
 };
 </script>
