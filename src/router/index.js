@@ -46,6 +46,10 @@ export const routes = [
     path: "/randomColor",
     component: (resolve) => require(["../views/randomColor.vue"], resolve),
   },
+  {
+    path: "/add",
+    component: (resolve) => require(["../views/add.vue"], resolve),
+  },
   
 
 ];

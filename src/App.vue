@@ -11,7 +11,7 @@
       <router-link to="arry">arry</router-link>
       <router-link to="arryDedup">arryDedup</router-link>
       <router-link to="randomColor">randomColor</router-link>
-      
+      <router-link to="add">add</router-link>
     </div>
     <router-view class="right_content"></router-view>
   </div>
@@ -38,10 +38,10 @@ a {
   text-decoration: none;
   display: block;
 }
-a:focus{
-  color:green;
+a:focus {
+  color: green;
 }
-.right_content{
+.right_content {
   margin-top: 40px;
   margin-left: 20px;
 }
