@@ -50,6 +50,10 @@ export const routes = [
     path: "/add",
     component: (resolve) => require(["../views/add.vue"], resolve),
   },
+  {
+    path: "/table",
+    component: (resolve) => require(["../views/table.vue"], resolve),
+  },
   
 
 ];

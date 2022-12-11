@@ -12,6 +12,7 @@
       <router-link to="arryDedup">arryDedup</router-link>
       <router-link to="randomColor">randomColor</router-link>
       <router-link to="add">add</router-link>
+       <router-link to="table">table</router-link>
     </div>
     <router-view class="right_content"></router-view>
   </div>
