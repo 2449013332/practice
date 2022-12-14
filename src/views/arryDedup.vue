@@ -37,7 +37,7 @@ export default {
         { name: "bbb", age: 161 },
       ],
       arr: [
-        { name: " aaa", age: 13 },
+        { name: "aaa", age: 13 },
         { name: "bbb", age: 15 },
         { name: "ccc", age: 17 },
         { name: "ddd", age: 22 },
@@ -45,6 +45,7 @@ export default {
         { name: "aaa", age: 13 },
         { name: "bbb", age: 161 },
       ],
+      //aa,aa,bbb,bbb,bbb,cc,ddd
       newArr: [
         { name: " aaa", age: 13 },
         { name: "bbb", age: 15 },
@@ -76,19 +77,26 @@ export default {
       this.result = newList;
     },
     returnDedup() {
-      // this.list.forEach((item) => {
-      //   this.repet = this.list.filter((i) => i.name === item.name);
-      //   if (this.repet.length > 1) {
-      //     return this.repet;
-      //   }
-      // });
+      let resArr = [];
+      this.list.forEach((item) => {
+        let flag = this.arr.some((val) => {
+          return item.name == val.name && item.age == val.age;
+        });
+        if (flag) {
+          resArr.push(item);
+        }
+      });
+      console.log(resArr)
     },
     findSame() {
       for (let i = 0; i < this.arr.length; i++) {
         let tempArr = this.arr[i];
         for (let j = 0; j < this.newArr.length; j++) {
           let tempNewArr = this.newArr[j];
-          if (tempNewArr.name === tempArr.name&&tempNewArr.age === tempArr.age) {
+          if (
+            tempNewArr.name === tempArr.name &&
+            tempNewArr.age === tempArr.age
+          ) {
             this.same.push(tempNewArr);
             break;
           }

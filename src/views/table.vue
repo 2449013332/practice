@@ -23,6 +23,22 @@ export default {
       });
     },
   },
+  mounted() {
+    var color = "blue";
+    function changeColor() {
+      let anotherColor = "red";
+      function swapColors() {
+        let tempColor = anotherColor;
+        anotherColor = color;
+        color = tempColor;
+        console.log(1, color);//red
+      }
+      swapColors();
+    }
+    console.log(2, color);//blue
+    changeColor();
+    console.log(3, color);//red
+  },
 };
 </script>
 
