@@ -1,43 +1,43 @@
 <template>
   <div id="app">
     <div>
-      <router-link to="watch">watch</router-link>
-      <router-link to="home">home</router-link>
-      <router-link to="count">count</router-link>
-      <router-link to="score">score</router-link>
-      <router-link to="lifeCycle">lifeCycle</router-link>
-      <router-link to="father">father</router-link>
-      <router-link to="change">change</router-link>
-      <router-link to="arry">arry</router-link>
-      <router-link to="arryDedup">arryDedup</router-link>
-      <router-link to="randomColor">randomColor</router-link>
-      <router-link to="add">add</router-link>
-       <router-link to="table">table</router-link>
+      <router-link
+        v-for="(item, index) in routeList"
+        :key="index"
+        :to="item.path"
+        >{{ filter(item.path) }}</router-link
+      >
     </div>
     <router-view class="right_content"></router-view>
   </div>
 </template>
 
 <script>
+import { routes } from "./router/index";
 export default {
   name: "App",
   data() {
-    return {};
+    return {
+      routeList: routes,
+      row:row
+    };
   },
-  methods: {},
+  mounted() {
+  },
+  methods: {
+    filter(item) {
+      return item.replace("/", "");
+    },
+  },
 };
 </script>
 
 <style>
-#app {
-  display: flex;
-}
 a {
   color: orange;
   padding: 20px;
-  font-size: 30px;
+  font-size: 16px;
   text-decoration: none;
-  display: block;
 }
 a:focus {
   color: green;

@@ -54,7 +54,10 @@ export const routes = [
     path: "/table",
     component: (resolve) => require(["../views/table.vue"], resolve),
   },
-  
+  {
+    path: "/work",
+    component: (resolve) => require(["../views/work/index.vue"], resolve),
+  },
 
 ];
 
