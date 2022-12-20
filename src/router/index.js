@@ -58,6 +58,15 @@ export const routes = [
     path: "/work",
     component: (resolve) => require(["../views/work/index.vue"], resolve),
   },
+  {
+    path: "/todoList",
+    component: (resolve) => require(["../views/todoList/index.vue"], resolve),
+  },
+  {
+    path: "/todo",
+    component: (resolve) => require(["../views/todo.vue"], resolve),
+  },
+
 
 ];
 

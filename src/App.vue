@@ -19,7 +19,7 @@ export default {
   data() {
     return {
       routeList: routes,
-      row:row
+      // row:row
     };
   },
   mounted() {
