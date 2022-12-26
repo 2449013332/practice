@@ -1,16 +1,29 @@
 <template>
   <div>
+    <Card shadow="always">
+      <div slot="header">header</div>
+      <div>content</div>
+    </Card>
+    <Card shadow="hover">
+      <div>content</div>
+    </Card>
     <div class="home_box" :class="{ pink: isActive }">box</div>
     <el-button type="primary" @click="toggle">点我换皮肤</el-button>
   </div>
 </template>
 
 <script>
+import Card from "../components/Card.vue";
 export default {
+  components: { Card },
   data() {
     return {
       isActive: false,
+      obj:{name:"x"}
     };
+  },
+  mounted(){
+    this.$set(this.obj,"name","y")
   },
   methods: {
     toggle() {

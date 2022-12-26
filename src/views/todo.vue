@@ -10,9 +10,8 @@
     </div>
     <div class="list-box">
       <div v-for="(item, index) in todoList" :key="item.id" class="item-box">
-        <el-checkbox @change="updateCount" v-model="item.completed">{{
-          item.name
-        }}</el-checkbox>
+        <el-checkbox v-model="item.completed"></el-checkbox>
+        <el-input v-model="item.name" class="input_box"></el-input>
         <el-button
           type="danger"
           size="small"
@@ -25,6 +24,10 @@
     <div class="bottom-box">
       <el-checkbox v-model="checkedAll" @change="change(checkedAll)">
         已完成{{ completedList.length }}/全部{{ todoList.length }}
+
+        <div>
+          computed:{{count}}
+        </div>
       </el-checkbox>
       <el-button @click="delAll" size="small" type="danger" class="button-box"
         >批量删除</el-button
@@ -37,6 +40,7 @@
 export default {
   data() {
     return {
+      obj: { name: "xx" },
       value: "",
       checkedAll: false,
       completedList: [],
@@ -49,6 +53,25 @@ export default {
         { id: "6", name: "思考人生", completed: false },
       ],
     };
+  },
+  computed: {
+    count() {
+      var num = 0;
+      this.todoList.forEach((item) => {
+        if (item.completed) {
+          num++;
+        }
+      });
+      return num;
+    },
+  },
+  watch: {
+    todoList: {
+      handler(val) {
+        this.updateCount();
+      },
+      deep: true,
+    },
   },
   methods: {
     add() {
@@ -80,7 +103,6 @@ export default {
         } else {
           item.completed = false;
         }
-        this.updateCount();
       });
     },
     // 负责计数
@@ -100,6 +122,10 @@ export default {
 }
 .item-box {
   margin: 20px 0;
+  display: flex;
+}
+.input_box {
+  width: 150px;
 }
 .button-box {
   margin-left: 50px;
