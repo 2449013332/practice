@@ -9,21 +9,39 @@
     </Card>
     <div class="home_box" :class="{ pink: isActive }">box</div>
     <el-button type="primary" @click="toggle">点我换皮肤</el-button>
+    <hr>
+
+   <div>
+    外面
+     <div>text:{{text}}</div>
+    <input type="text" v-model="text">
+   </div>
+    <Input v-model="text"></Input>
+
+    <box v-model="show"></box>
+    <button @click="show=!show">开关{{show}}</button>
   </div>
 </template>
 
 <script>
 import Card from "../components/Card.vue";
+import Input from "../components/input.vue";
 export default {
-  components: { Card },
+  components: { Card ,Input},
   data() {
     return {
+      text:1,
+      show:true,
       isActive: false,
       obj:{name:"x"}
     };
   },
+  watch:{},
   mounted(){
     this.$set(this.obj,"name","y")
+    setInterval(()=>{
+      // this.text++
+    },1000)
   },
   methods: {
     toggle() {
