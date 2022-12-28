@@ -18,7 +18,7 @@
    </div>
     <Input v-model="text"></Input>
 
-    <box v-model="show"></box>
+    <Box v-model="show"></Box>
     <button @click="show=!show">开关{{show}}</button>
   </div>
 </template>
@@ -26,8 +26,9 @@
 <script>
 import Card from "../components/Card.vue";
 import Input from "../components/input.vue";
+import Box from "../components/Box.vue"
 export default {
-  components: { Card ,Input},
+  components: { Card ,Input,Box},
   data() {
     return {
       text:1,
