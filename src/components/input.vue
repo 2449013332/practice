@@ -1,18 +1,25 @@
 <template>
   <div class="input">
     <div>我是子组件的text{{ value }}</div>
-    <input v-model="value" type="text" />
+    <!-- <input v-model="text" type="text" /> -->
+    <div>{{text}}</div>
   </div>
 </template>
 
 <script>
 export default {
-  props: {
-    value: String,
+  props: ["value"],
+  data() {
+    return {
+      text: "",
+    };
   },
   watch: {
-    value() {
-      this.$emit("input", this.value);
+    value(val) {
+      this.text = val;
+    },
+    text(val) {
+      this.$emit("input", val);
     },
   },
 };

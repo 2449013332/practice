@@ -66,6 +66,10 @@ export const routes = [
     path: "/todo",
     component: (resolve) => require(["../views/todo.vue"], resolve),
   },
+  {
+    path: "/cemetery",
+    component: (resolve) => require(["../views/cemetery.vue"], resolve),
+  },
 
 
 ];
