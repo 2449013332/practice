@@ -36,6 +36,7 @@ export default {
         { src: require("../assets/14.jpg") },
         { src: require("../assets/15.jpg") },
         { src: require("../assets/22.jpg") },
+        
       ],
       autoTimer: null,
     };
@@ -62,6 +63,7 @@ export default {
       }
       //获取轮播元素
       let carousel = this.$refs.carouselRef;
+      console.log(carousel)
       //获取轮播框的宽度
       let width = getComputedStyle(carousel).width;
       width = Number(width.slice(0, -2));
@@ -74,6 +76,7 @@ export default {
         //refresh装饰器
         let result = func(...args);
         this.refresh();
+        
         //重置自动滚动
         clearInterval(this.autoTimer);
         this.autoTimer = this.createAuto();

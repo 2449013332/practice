@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div>
+    <div style="flex-wrap: wrap;display: flex">
       <router-link
         v-for="(item, index) in routeList"
         :key="index"

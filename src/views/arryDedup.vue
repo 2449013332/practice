@@ -77,16 +77,17 @@ export default {
       this.result = newList;
     },
     returnDedup() {
-      let resArr = [];
-      this.list.forEach((item) => {
-        let flag = this.arr.some((val) => {
-          return item.name == val.name && item.age == val.age;
-        });
-        if (flag) {
-          resArr.push(item);
+    this.repet=[]
+    let obj={}
+    this.list.forEach(item=>{
+      this.arr.forEach(i=>{
+        if(item.name ==i.name &&item.age ==i.age && !obj[item.name]){
+          this.repet.push(item)
+          obj[item.name]=true
         }
-      });
-      console.log(resArr)
+      })
+    })
+    return this.repet
     },
     findSame() {
       for (let i = 0; i < this.arr.length; i++) {

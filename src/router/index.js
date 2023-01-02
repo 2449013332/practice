@@ -70,6 +70,10 @@ export const routes = [
     path: "/cemetery",
     component: (resolve) => require(["../views/cemetery.vue"], resolve),
   },
+  {
+    path: "/computed",
+    component: (resolve) => require(["../views/computed.vue"], resolve),
+  },
 
 
 ];
