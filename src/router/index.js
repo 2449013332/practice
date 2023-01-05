@@ -74,6 +74,10 @@ export const routes = [
     path: "/computed",
     component: (resolve) => require(["../views/computed.vue"], resolve),
   },
+  {
+    path: "/addBook",
+    component: (resolve) => require(["../views/addBook.vue"], resolve),
+  },
 
 
 ];
