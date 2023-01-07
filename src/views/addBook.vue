@@ -1,17 +1,15 @@
 <template>
   <div>
-    {{ tableData }}
     <h1>价格总数{{ total }}</h1>
     <div>
       <el-input
         placeholder="请输入内容"
         prefix-icon="el-icon-search"
         v-model="input"
-        @input="search"
-      >
+      > 
       </el-input>
     </div>
-    <el-table :data="tableData">
+    <el-table :data="filterData">
       <el-table-column prop="name" label="书名">
         <template slot-scope="scope">
           <el-input
@@ -21,7 +19,11 @@
         </template>
       </el-table-column>
       <el-table-column prop="author" label="作者"> </el-table-column>
-      <el-table-column prop="price" label="价格"> </el-table-column>
+      <el-table-column prop="price" label="价格">
+         <template slot-scope="scope">
+          {{ scope.row.price}}￥
+        </template>
+      </el-table-column>
       <el-table-column prop="type" label="价格类型">
         <template slot-scope="scope">
           <el-select
@@ -41,7 +43,7 @@
       </el-table-column>
       <el-table-column prop="discount" label="优惠后价格">
         <template slot-scope="scope">
-          {{ afterPrice(scope.row) }}
+          {{ afterPrice(scope.row) }}￥
         </template>
       </el-table-column>
       <el-table-column label="操作">
@@ -81,6 +83,7 @@
 export default {
   data() {
     return {
+      copyTableData:[],
       input: "",
       options: [
         {
@@ -151,6 +154,13 @@ export default {
       });
       return sum;
     },
+
+    filterData(){
+      let data = this.tableData.filter((item) => {
+        return item.name.indexOf(this.input) !=-1
+      });
+      return data
+    }
   },
   created() {
     // this.tableData.map((item) => {
@@ -166,12 +176,6 @@ export default {
     // });
   },
   methods: {
-    search() {
-      let data = this.tableData.filter((item) => {
-        return item.name.indexOf(this.input) !=-1
-      });
-      this.tableData=data
-    },
     afterPrice(row) {
       let after = 0;
       if (row.type == "预售价" && row.price >= 100) {

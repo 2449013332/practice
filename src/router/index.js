@@ -78,6 +78,10 @@ export const routes = [
     path: "/addBook",
     component: (resolve) => require(["../views/addBook.vue"], resolve),
   },
+  {
+    path: "/addPerson",
+    component: (resolve) => require(["../views/addPerson.vue"], resolve),
+  },
 
 
 ];
