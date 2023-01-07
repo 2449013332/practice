@@ -7,7 +7,7 @@
         placeholder="请输入内容"
         prefix-icon="el-icon-search"
         v-model="input"
-        @input="change"
+        @input="search"
       >
       </el-input>
     </div>
@@ -166,11 +166,10 @@ export default {
     // });
   },
   methods: {
-    change() {
+    search() {
       let data = this.tableData.filter((item) => {
         return item.name.indexOf(this.input) !=-1
       });
-      console.log(data);
       this.tableData=data
     },
     afterPrice(row) {
