@@ -6,7 +6,7 @@
         placeholder="请输入内容"
         prefix-icon="el-icon-search"
         v-model="input"
-      > 
+      >
       </el-input>
     </div>
     <el-table :data="filterData">
@@ -20,9 +20,7 @@
       </el-table-column>
       <el-table-column prop="author" label="作者"> </el-table-column>
       <el-table-column prop="price" label="价格">
-         <template slot-scope="scope">
-          {{ scope.row.price}}￥
-        </template>
+        <template slot-scope="scope"> {{ scope.row.price }}￥ </template>
       </el-table-column>
       <el-table-column prop="type" label="价格类型">
         <template slot-scope="scope">
@@ -42,9 +40,7 @@
         </template>
       </el-table-column>
       <el-table-column prop="discount" label="优惠后价格">
-        <template slot-scope="scope">
-          {{ afterPrice(scope.row) }}￥
-        </template>
+        <template slot-scope="scope"> {{ afterPrice(scope.row) }}￥ </template>
       </el-table-column>
       <el-table-column label="操作">
         <template slot-scope="scope">
@@ -83,7 +79,7 @@
 export default {
   data() {
     return {
-      copyTableData:[],
+      copyTableData: [],
       input: "",
       options: [
         {
@@ -155,41 +151,49 @@ export default {
       return sum;
     },
 
-    filterData(){
+    filterData() {
       let data = this.tableData.filter((item) => {
-        return item.name.indexOf(this.input) !=-1
+        return item.name.indexOf(this.input) != -1;
       });
-      return data
-    }
-  },
-  created() {
-    // this.tableData.map((item) => {
-    //   if (item.type == "预售价" && item.price >= 100) {
-    //     item.discount = item.price - 20;
-    //   } else if (item.type == "大促价" && item.price >= 100) {
-    //     item.discount = item.price - 30;
-    //   } else if (item.type == "返厂价" && item.price >= 200) {
-    //     item.discount = item.price - 50;
-    //   } else if (item.type == "尝鲜价") {
-    //     item.discount = item.price / 2;
-    //   }
-    // });
+      return data;
+    },
   },
   methods: {
     afterPrice(row) {
-      let after = 0;
-      if (row.type == "预售价" && row.price >= 100) {
-        after = row.price - 20;
-      } else if (row.type == "大促价" && row.price >= 100) {
-        after = row.price - 30;
-      } else if (row.type == "返厂价" && row.price >= 200) {
-        after = row.price - 50;
-      } else if (row.type == "尝鲜价") {
-        after = row.price / 2;
-      } else {
-        after = row.price;
+      // 策略模式
+      if (row.type == "预售价") {
+        return presalePrice(row.price);
       }
-      return after;
+      if (row.type == "大促价") {
+        return bigPromotionPrice(row.price);
+      }
+      if (row.type == "返厂价") {
+        return returnFactoryPrice(row.price);
+      }
+      if (row.type == "尝鲜价") {
+        return tasteFreshPrice(row.price);
+      }
+      function presalePrice(originPrice) {
+        if (originPrice >= 100) {
+          return originPrice - 20;
+        }
+        return originPrice;
+      }
+      function bigPromotionPrice(originPrice) {
+        if (originPrice >= 100) {
+          return originPrice - 30;
+        }
+        return originPrice;
+      }
+      function returnFactoryPrice(originPrice) {
+        if (originPrice >= 200) {
+          return originPrice - 50;
+        }
+        return originPrice;
+      }
+      function tasteFreshPrice(originPrice) {
+        return originPrice / 2;
+      }
     },
     handleDelete(row) {
       let index = this.tableData.findIndex((item) => item.id == row.id);
