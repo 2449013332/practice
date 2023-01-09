@@ -20,15 +20,20 @@
 
     <Box v-model="show"></Box>
     <button @click="show=!show">开关{{show}}</button>
+    <hr/>
+    <Steps></Steps>
+    <el-button type="primary" size="small">下一步</el-button>
   </div>
+  
 </template>
 
 <script>
 import Card from "../components/Card.vue";
 import Input from "../components/input.vue";
 import Box from "../components/Box.vue"
+import Steps from "../components/steps.vue"
 export default {
-  components: { Card ,Input,Box},
+  components: { Card ,Input,Box,Steps},
   data() {
     return {
       text:1,
