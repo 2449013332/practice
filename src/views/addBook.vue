@@ -142,7 +142,7 @@ export default {
     };
   },
   computed: {
-    // 只会展示你return的值
+    // computed只会展示你return的值
     total() {
       let sum = 0;
       this.tableData.forEach((item) => {
