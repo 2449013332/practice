@@ -47,6 +47,20 @@
           <el-button size="mini" type="danger" @click="handleDelete(scope.row)"
             >删除</el-button
           >
+          <el-button
+            size="mini"
+            type="primary"
+            @click="toUp(scope.row, scope.$index)"
+            v-if="scope.$index !=0"
+            >上移一行</el-button
+          >
+          <el-button
+            size="mini"
+            type="primary"
+            @click="toDown(scope.row, scope.$index)"
+            v-if="scope.$index !=tableData.length-1"
+            >下移一行</el-button
+          >
         </template>
       </el-table-column>
     </el-table>
@@ -159,6 +173,22 @@ export default {
     },
   },
   methods: {
+    toUp(row, idx) {
+     let fn=(val, index)=>{
+        let item = this.tableData.splice(index, 1);
+        this.tableData.splice(index - 1, 0, item[0]);
+        return this.tableData;
+      }
+      fn(row, idx);
+    },
+    toDown(row, idx) {
+      let fn=(val, index)=> {
+        let item = this.tableData.splice(index, 1);
+       this.tableData.splice(index + 1, 0, item[0]);
+        return this.tableData;
+      }
+      fn(row, idx);
+    },
     afterPrice(row) {
       // 策略模式
       if (row.type == "预售价") {
