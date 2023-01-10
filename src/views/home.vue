@@ -21,8 +21,9 @@
     <Box v-model="show"></Box>
     <button @click="show=!show">开关{{show}}</button>
     <hr/>
-    <Steps></Steps>
-    <el-button type="primary" size="small">下一步</el-button>
+    <h1>active:{{active}}</h1>
+    <Steps :list="['aaa','bbb','ccc']" :active="active"></Steps>
+    <el-button type="primary" size="small" @click="next">下一步</el-button>
   </div>
   
 </template>
@@ -36,6 +37,7 @@ export default {
   components: { Card ,Input,Box,Steps},
   data() {
     return {
+      active:2,
       text:1,
       show:true,
       isActive: false,
@@ -51,6 +53,9 @@ export default {
     },1000)
   },
   methods: {
+    next(){
+      if(this.active++ >=2)this.active=0
+    },
     toggle() {
       // if (this.isActive) {
       //   this.isActive = false;

@@ -50,15 +50,15 @@
           <el-button
             size="mini"
             type="primary"
-            @click="toUp(scope.row, scope.$index)"
-            v-if="scope.$index !=0"
+            @click="toUp(scope.$index)"
+            v-if="scope.$index != 0"
             >上移一行</el-button
           >
           <el-button
             size="mini"
             type="primary"
-            @click="toDown(scope.row, scope.$index)"
-            v-if="scope.$index !=tableData.length-1"
+            @click="toDown(scope.$index)"
+            v-if="scope.$index != tableData.length - 1"
             >下移一行</el-button
           >
         </template>
@@ -173,21 +173,13 @@ export default {
     },
   },
   methods: {
-    toUp(row, idx) {
-     let fn=(val, index)=>{
-        let item = this.tableData.splice(index, 1);
-        this.tableData.splice(index - 1, 0, item[0]);
-        return this.tableData;
-      }
-      fn(row, idx);
+    toUp(idx) {
+      let item = this.tableData.splice(idx, 1);
+      this.tableData.splice(idx - 1, 0, item[0]);
     },
-    toDown(row, idx) {
-      let fn=(val, index)=> {
-        let item = this.tableData.splice(index, 1);
-       this.tableData.splice(index + 1, 0, item[0]);
-        return this.tableData;
-      }
-      fn(row, idx);
+    toDown(idx) {
+      let item = this.tableData.splice(idx, 1);
+      this.tableData.splice(idx + 1, 0, item[0]);
     },
     afterPrice(row) {
       // 策略模式
