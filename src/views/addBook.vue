@@ -40,7 +40,7 @@
         </template>
       </el-table-column>
       <el-table-column prop="discount" label="优惠后价格">
-        <template slot-scope="scope"> {{ afterPrice(scope.row) }}￥ </template>
+        <template slot-scope="scope">  {{ afterPrice(scope.row) }}￥ </template>
       </el-table-column>
       <el-table-column label="操作">
         <template slot-scope="scope">
