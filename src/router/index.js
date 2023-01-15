@@ -82,7 +82,10 @@ export const routes = [
     path: "/addPerson",
     component: (resolve) => require(["../views/addPerson.vue"], resolve),
   },
-
+  {
+    path: "/cart",
+    component: (resolve) => require(["../views/cart.vue"], resolve),
+  },
 
 ];
 
