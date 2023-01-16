@@ -36,7 +36,7 @@
 <script>
 export default {
   created() {
-    this.kind = this.typeList[0].title;
+    this.kind  = this.typeList[0].title;
     this.money = this.typeList[0].price;
   },
   data() {
