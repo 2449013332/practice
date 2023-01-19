@@ -86,6 +86,10 @@ export const routes = [
     path: "/cart",
     component: (resolve) => require(["../views/cart.vue"], resolve),
   },
+  {
+    path: "/video",
+    component: (resolve) => require(["../views/video.vue"], resolve),
+  },
 
 ];
 
