@@ -90,6 +90,10 @@ export const routes = [
     path: "/video",
     component: (resolve) => require(["../views/video.vue"], resolve),
   },
+  {
+    path: "/time",
+    component: (resolve) => require(["../views/time.vue"], resolve),
+  },
 
 ];
 
