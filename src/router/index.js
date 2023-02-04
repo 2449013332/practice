@@ -94,6 +94,10 @@ export const routes = [
     path: "/time",
     component: (resolve) => require(["../views/time.vue"], resolve),
   },
+  {
+    path: "/todo1",
+    component: (resolve) => require(["../views/todo1.vue"], resolve),
+  },
 
 ];
 
