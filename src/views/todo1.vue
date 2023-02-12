@@ -51,7 +51,7 @@ export default {
         });
         item.select = true;
       }
-    },
+    }, 
   },
   /*
 1、新建一个输入框和添加按钮
