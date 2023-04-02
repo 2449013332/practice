@@ -13,7 +13,7 @@
 
    <div>
     外面
-     <div>text:{{text}}</div>
+     <div>text:{{text}} </div>
     <input type="text" v-model="text">
    </div>
     <Input v-model="text" :bbb1="bbb2"></Input>
