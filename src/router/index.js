@@ -98,7 +98,10 @@ export const routes = [
     path: "/todo1",
     component: (resolve) => require(["../views/todo1.vue"], resolve),
   },
-
+  {
+    path: "/lazy",
+    component: (resolve) => require(["../views/lazy.vue"], resolve),
+  },
 ];
 
 export default new Router({
